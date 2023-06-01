@@ -71,7 +71,7 @@ module.exports = {
       if (!results) {
         return res.json({
           success: 0,
-          message: "Record not found"
+          message: "Operation Success"
         });
       }
       return res.json({
