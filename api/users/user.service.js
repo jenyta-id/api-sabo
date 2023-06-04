@@ -75,6 +75,19 @@ module.exports = {
     );
   },
 
+  setLocationToUser: (data, callback) => {
+    pool.query(
+      `UPDATE users SET location=? WHERE id=?`,
+      [data.location, id],
+      (error, results, fields) => {
+        if (error) {
+          return callback(error);
+        }
+        return callback(null, results);
+      }
+    );
+  },
+
   addUserLocation: (userId, locationId, callback) => {
     pool.query(
       `UPDATE users SET location = ? WHERE id = ?`,
