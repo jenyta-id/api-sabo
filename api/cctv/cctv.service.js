@@ -49,6 +49,14 @@ module.exports = {
     });
   },
 
+  getLocationCctv: callback => {
+    pool.query(`SELECT location FROM cctv`, [], (error, results) => {
+      if (error) {
+        return callback(error);
+      }
+      return callback(null, results);
+    });
+  },
   updateCctv: (data, callback) => {
     pool.query(
       `UPDATE cctv SET name=?, location=?, coordinat=?, used=?, protocol=?, ip=?, remark=? WHERE id=?`,

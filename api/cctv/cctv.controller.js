@@ -1,4 +1,4 @@
-const { create, getCctvByCctvId, getCctvs, updateCctv, deleteCctv } = require("./cctv.service");
+const { create, getCctvByCctvId, getCctvs, updateCctv, deleteCctv,getLocationCctv } = require("./cctv.service");
 const getUserByCctvLocation = require("./cctv.service").getUserByCctvLocation;
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
       if (!results) {
         return res.json({
           success: 0,
-          message: "Record not found"
+          message: "CCTV Tidak Ditemukan!"
         });
       }
       return res.json({
@@ -65,6 +65,19 @@ module.exports = {
       });
     });
   },  
+
+  getLocationCctv: (req, res) => {
+    getLocationCctv((err, results) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      return res.json({
+        success: 1,
+        data: results
+      });
+    });
+  },
 
   updateCctv: (req, res) => {
     const body = req.body;
