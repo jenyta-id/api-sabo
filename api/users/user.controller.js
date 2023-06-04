@@ -5,7 +5,6 @@ const {
   getUsers,
   updateUser,
   deleteUser,
-  getColumnCctvOptions
 } = require("./user.service");
 const { hashSync, genSaltSync, compareSync } = require("bcrypt");
 const { sign } = require("jsonwebtoken");
@@ -46,7 +45,7 @@ const { sign } = require("jsonwebtoken");
         if (result) {
           results.password = undefined;
           const jsontoken = sign({ result: results }, "qwe1234", {
-            expiresIn: "1h"
+            expiresIn: "24h"
           });
           return res.json({
             success: 1,
@@ -85,19 +84,6 @@ const { sign } = require("jsonwebtoken");
 
     getUsers: (req, res) => {
       getUsers((err, results) => {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        return res.json({
-          success: 1,
-          data: results
-        });
-      });
-    },
-
-    getColumnCctvOptions: (req, res) => {
-      getColumnCctvOptions((err, results) => {
         if (err) {
           console.log(err);
           return;

@@ -7,6 +7,6 @@ router.post("/login", login);
 router.get("/:id", checkToken, getAdminByAdminId);
 router.get("/", checkToken, getAdmins);
 router.put("/update", checkToken, updateAdmin);
-router.delete("/delete", checkToken, deleteAdmin);
+router.delete("/deleteAdmin", checkToken, deleteAdmin);
 
 module.exports = router;

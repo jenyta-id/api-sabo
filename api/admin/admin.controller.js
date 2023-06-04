@@ -45,7 +45,7 @@ const {
         if (result) {
           results.password = undefined;
           const jsontoken = sign({ result: results }, "qwe1234", {
-            expiresIn: "1h"
+            expiresIn: "24h"
           });
           return res.json({
             success: 1,
