@@ -4,10 +4,10 @@ const { checkToken } = require("../../auth/token_validation");
 
 router.post("/createUser", createUser);
 router.post("/login", login);
+router.put("/update", checkToken, updateUsers);
 router.get("/cctvLocation", getColumnCctvOptions);
 router.get("/:id", checkToken, getUserByUserId);
 router.get("/", checkToken, getUsers);
-router.put("/update", checkToken, updateUsers);
 router.delete("/", checkToken, deleteUser);
 
 module.exports = router;
