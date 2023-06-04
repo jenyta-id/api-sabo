@@ -7,6 +7,7 @@ module.exports = {
     const longitude = data.longitude;
     const coordinates = `POINT(${longitude} ${latitude})`;
     // coordinataes untuk menyimpan data koordinat dalam format POINT(longitude latitude)
+    //test
 
     pool.query(
       `INSERT INTO cctv (name, location, coordinates, used, protocol, ip, remark) VALUES (?,?,?,?,?,?,?)`,
