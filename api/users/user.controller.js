@@ -4,12 +4,11 @@ const {
   getUserByUserId,
   getUsers,
   updateUser,
-  deleteUser
+  deleteUser,
+  getColumnCctvOptions
 } = require("./user.service");
 const { hashSync, genSaltSync, compareSync } = require("bcrypt");
 const { sign } = require("jsonwebtoken");
-
-const getColumnCctv = require("./user.service").getColumnLocationCctv;
   
   module.exports = {
     createUser: (req, res) => {

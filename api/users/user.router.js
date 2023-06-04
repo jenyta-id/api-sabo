@@ -4,7 +4,7 @@ const { checkToken } = require("../../auth/token_validation");
 
 router.post("/createUser", createUser);
 router.post("/login", login);
-router.get("/cctvOptions", getColumnCctvOptions);
+router.get("/cctvLocation", getColumnCctvOptions);
 router.get("/:id", checkToken, getUserByUserId);
 router.get("/", checkToken, getUsers);
 router.put("/update", checkToken, updateUsers);

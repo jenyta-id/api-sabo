@@ -62,7 +62,7 @@ module.exports = {
     });
   },
 
-  getColumnLocationCctv: callback => {
+  getColumnCctvOptions: callback => {
     pool.query(`SELECT location FROM cctv`, [], (error, results, fields) => {
       if (error) {
         return callback(error);
@@ -74,7 +74,7 @@ module.exports = {
   updateUser: (data, callback) => {
     pool.query(
       `UPDATE users SET name=?, email=?, password=?, location=? WHERE id=?`,
-      [data.name, data.email, data.password, data.location, data.id],
+      [data.name, data.email, data.password, data.location, id],
       (error, results, fields) => {
         if (error) {
           return callback(error);
